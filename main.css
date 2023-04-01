@@ -9,9 +9,8 @@
     --index: calc(1vw + 1vh);
 }
 
-/* Font with prefix : to tell that system fonts won't be acknowledged*/
 @font-face {
-    font-family: arsenal_f, sans-serif;
+    font-family: arsenal_max_font;
     src: url(fonts/arsenal-regular.woff2);
 }
 
@@ -20,5 +19,32 @@ body {
 }
 
 .magic-list {
-    
+   font-family: arsenal_max_font, sans-serif;
+   font-size: calc(var(--index) * 2.75);
+   background: salmon;
+   padding: calc(var(--index) * 2.75);
+}
+
+.magic-list__item {
+   /* cursor: none; */
+   color: var(--black);
+   text-decoration: none;
+   display: block;
+   line-height: 0.9;
+   padding: calc(var(--index) * 3) calc(var(--index) * 7.5);
+   border-bottom: 1px solid rgb(0 0 0 / 0.1);
+   counter-increment: my-counter;
+}
+
+.magic-list__header {
+   width: min-content;
+}
+
+.magic-list__item::before {
+   content: '(0' counter(my-counter) ')';
+   position: absolute;
+   font-size: calc(var(--index) * 0.95);
+   margin-left: calc(var(--index) * -2.25);
+   margin-top: calc(var(--index) / 2);
+   letter-spacing: 0.5px;
 }
